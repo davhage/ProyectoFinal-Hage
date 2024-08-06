@@ -16,11 +16,3 @@ A simple and efficient To-Do List application built with HTML, CSS, and JavaScri
 - CSS
 - JavaScript
 
-## Installation
-
-To set up this project locally, follow these steps:
-
-1. **Clone the repository:**
-
-   ```bash
-   git clone https://github.com/your-username/todo-list.git
