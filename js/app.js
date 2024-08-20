@@ -25,6 +25,13 @@ const toggleTaskCompleted = id => {
     renderTasks();
 }
 
+//? Function to edit task
+const editTask = (id, newText) => {
+    tasks = tasks.map(task => task.id === id ? {...task, text: newText} : task);
+    saveTasks();
+    renderTasks();
+}
+
 //? Function to delete a task
 const  deleteTask = id => {
     tasks = tasks.filter(task => task.id !== id);
