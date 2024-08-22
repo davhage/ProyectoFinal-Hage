@@ -23,13 +23,11 @@ const toggleTaskCompleted = id => {
     tasks = tasks.map(task => task.id === id ? {...task, completed: !task.completed} : task);
     saveTasks();
     renderTasks();
-}
-
-//? Function to edit task
-const editTask = (id, newText) => {
-    tasks = tasks.map(task => task.id === id ? {...task, text: newText} : task);
-    saveTasks();
-    renderTasks();
+    Toastify({
+        text: "Task completed!",
+        duration: 4000,
+        style: {background: '#4cbe27'},
+    }).showToast();
 }
 
 //? Function to delete a task
@@ -55,9 +53,9 @@ const renderTasks = () => {
             deleteTask(task.id);
 //* Function that uses a library to show a banner when you delete a task
             Toastify({
-                text: 'You delet a task',
+                text: 'You deleted a task',
                 duration: 4000,
-                style: {background: 'red'},
+                style: {background: '#dc3545'},
             }).showToast();
         });
         li.appendChild(deleteButton);
@@ -77,9 +75,24 @@ document.getElementById('task-form').addEventListener('submit', (e) => {
     Toastify({
         text: 'You add a task',
         duration: 4000,
-        style: {background: 'green'},
+        style: {background: '#007bff'},
     }).showToast();
 });
 
+//? Random quote fetch API
+const fetchQuote = () => {
+    fetch('https://api.quotable.io/random')
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('quote').textContent = `"${data.content}" — ${data.author}`;
+        })
+        .catch(error => {
+            console.error('Error fetching the quote:', error);
+        });
+};
+
 //? Initial render of tasks
 renderTasks();
+
+//? Call the function to fetch a quote when the page loads
+document.addEventListener('DOMContentLoaded', fetchQuote);

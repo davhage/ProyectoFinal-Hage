@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
+    font-family: sans-serif, Arial, Helvetica;
 }
 
 body {
@@ -11,6 +11,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    flex-direction: column;
 }
 
 .container {
@@ -74,7 +75,7 @@ h1 {
 
 .task-list li.completed {
     text-decoration: line-through;
-    color: #999;
+    color: #4cbe27;
 }
 
 .task-list button {
@@ -89,4 +90,14 @@ h1 {
 
 .task-list button:hover {
     background-color: #c82333;
+}
+
+#quote-container {
+    margin-bottom: 20px;
+    font-style: italic;
+    font-size: 1.2em;
+    color: #555;
+    text-align: center;
+    width: 90%;
+    max-width: 400px;
 }
